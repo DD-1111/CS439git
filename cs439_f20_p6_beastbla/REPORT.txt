@@ -1,0 +1,28 @@
+- Read about reader-writer locks and describe how you would implement them
+Instead of having a single lock method, reader-writer locks have two - one for readers and one 
+for writers. When readers enter the critical section they invoke the reader lock
+ (and then reader unlock on exit); when writers enter the critical section they 
+ invoke the writer lock (and then writer unlock on exit). With this scheme, as long
+  as there are no writers in the critical section, multiple readers can interact with
+ the data simultaneously. It may become useful while creating similar structure like boundedbuffer,
+while both writing and reading require exclusion.
+
+- Why is it dangerous to call the set method on a future more than once?
+Since the isReady is set to true once a set is called. We cannot ensure the consistency of 
+the value we get during the iteration. Then the future class will be meaningless. 
+
+- When is it safe to delete an instance of a synchronization primitive?
+If there is no further call, we can delete it. In out implementation, most of the time,
+a synchronization primitive seems to act as a local instance, but we have to Use the 
+same synchronization primitive instance to protect access of a shared resource. If you 
+ferent synchronization primitive instances to protect the same resource, you'll 
+circumvent the protection provided by a synchronization primitive. So once we finish all 
+the synchronization process, we can delete it. We can only do this when we are sure we can
+do this at the time, for example, the one-shot barrier. Otherwise, we can only wait for all 
+threads to stop.
+
+
+
+https://docs.oracle.com/cd/E19253-01/816-4854/mt-13/index.html
+https://eli.thegreenplace.net/2019/implementing-reader-writer-locks/
+https://docs.microsoft.com/en-us/dotnet/standard/threading/overview-of-synchronization-primitives

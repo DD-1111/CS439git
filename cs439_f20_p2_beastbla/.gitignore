@@ -1,0 +1,11 @@
+*.d
+*.o
+*.raw
+*.out
+*.result
+*.diff
+kernel.bin
+kernel.img
+kernel/kernel
+kernel/kernel.cc
+selft.cc

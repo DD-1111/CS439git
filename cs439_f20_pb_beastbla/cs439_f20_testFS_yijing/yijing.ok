@@ -1,0 +1,28 @@
+*** looking at /file1.txt
+*** this is file 1 in ./file1.txt
+*** read successfully
+
+*** looking at /file2.txt
+*** this is file 2 in ./file2.txt
+*** read successfully
+
+*** looking at /test
+***      does not exist
+
+*** looking at /dir1/a.txt
+*** this is file a in ./dir1/a.txt
+*** read successfully
+
+*** looking at /dir1/dir2/b.txt
+*** this is file b in ./dir1/dir2/b.txt
+*** read successfully
+
+*** looking at /dir1/dir2/dir3/c.txt
+*** this is file c in ./dir1/dir2//dir3/c.txt
+*** read successfully
+
+*** looking at /dir1/dir2/dir3/dir4/d.txt
+*** this is file d in ./dir1/dir2/dir3/dir4/d.txt
+*** read successfully
+
+*** PASS!

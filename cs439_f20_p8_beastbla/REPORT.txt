@@ -1,0 +1,20 @@
+* How many sectors are read while running t0?
+I read 909 - 87 = 822 times sectors, which is not quite good I believe. There are a lot of tiny things
+I can optimize but I don't really have that time.
+
+* Read about journaled file systems and log structured file systems and
+  explain why we have them
+ Those file system have recovery capability. Because the update information for directories and 
+ bitmaps is always written to a continuous disk before the original disk log is updated So 
+ it guarantees the integrity of the data. When a system error occurs, a full-log 
+ file system will ensure that the data on the disk is restored to the state before the 
+ system crash.
+
+* Why do we need both hard links and symbolic links?
+Firstly, when we are mounting on some devices, because there is no way to access the mounted devices
+through hard links, so symbolic links are needed. When a file is removed, the symbolic links will become
+dangerous and invalid, they are dangling and potentially point to different file even with same name inside of the links.
+Also, the main advantage of hard links is no size or speed penalty compared to symbolic links.
+
+https://wiki.archlinux.org/index.php?title=File_Systems_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&oldid=273188
+https://unix.stackexchange.com/questions/20670/why-do-hard-links-exist

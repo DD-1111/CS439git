@@ -1,0 +1,59 @@
+- Describe how you keep track of open file offsets
+ We have an openfile struct take care of that. I wrote seek() method override in it.
+ offset is just a variance stored in openfile struct together with the file node.
+  offset value is public, so we can get to access from the kernel side. Seek() method 
+  can change the value.
+
+- Explain why it's a good idea to copy the exec args in kernel space
+  before performing the exec.
+  When we exec, we are having a new stack there to replace the old stack. We will 
+  need to clean the original data in that. However, for those arguments, we have 
+  to store it somewhere safe to avoid to be deleted. So we can copy from kernel space 
+  to load the argumetns into the new stack.
+
+- List 3 security exposures that your implementation of exec addressed
+1, A child process is a resource for the parent process and is hence stored in 
+parent's process. When a child forks, such a file for child is NOT copied to 
+the file descriptor table of the child process. Hence, in exec, the new
+process does not know its parent's other child processes therefore, they are safe.
+
+2, I clean up the whole userstack in the exec by copying them into the kernel,
+then I set up the userstack again and pass the argument using what we have in kernel,
+so each program does not know what was here before.
+"What's happening here?" "Haven't happen yet." ----TENET
+
+3,When trying to load ELF file, we have to check whether that file is a runnable file,
+I did that by check the size of it. It has to be at least fittable for a header.
+
+
+- Read about the opendir system call. Why do we need a dedicated system
+  call for opening directories? Why not just open a directory as if it
+  were a file and look at its internal representation?
+ When we open directories repectively and we need to let users do certain 
+ manipulations with directories, which represents a directory stream.
+
+- We implement the open, close, read, and write system calls. All
+  Unix-like systems have corresponding higher level library
+  functions: fopen, fclose, fread, and fwrite. How come?
+    The fopen() function opens the file whose name is the string pointed
+       to by pathname and associates a stream with it. This function have also
+       an argument of mode, which will be the append mode while opening, with several flags.
+
+    The fclose() function causes the stream pointed to by stream to be flushed and the
+     associated file to be closed. Any unwritten buffered data for the stream is 
+     written to the file; any unread buffered data is discarded.
+
+    The function fread() reads nmemb elements of data, each size bytes long,
+     from the stream pointed to by stream, storing them at the location given by ptr.
+
+    The function fwrite() writes nmemb elements of data, each size bytes long,
+    to the stream pointed to by stream, obtaining them from the location given by ptr.
+
+    All those function with an 'f' is going to create and manipulate in stream. Which 
+    will provide unexpected efficiency (will be convinient and handy to use). 
+
+https://man7.org/linux/man-pages/man3/fopen.3.html
+
+https://pubs.opengroup.org/onlinepubs/7908799/xsh/fclose.html
+
+https://linux.die.net/man/3/fread

@@ -1,0 +1,35 @@
+-- Should be identical for all group members --
+
+- What did the group plan on doing?
+
+    We planed to implement class Transaction and TransactionQueue, and Journal.
+    Also, we planed to write several journaling functions to make it work.
+
+- What did the group end up doing?
+
+    We finished Journaling and it works very well.
+    Now, We have class Transaction and TransactionQueue, and Journal.
+    In class Journal, we implemented redo(), checkQueue(), checkConsistency(), txCommit(), Jwrite()
+    We wrote a test case to show our works.
+
+- What worked?
+
+    We are able to init a transaction to store info, such as inumber, offset, nbytes, buffer.
+    Also, inner structure of journal is a queue and it works very well too.
+    For journal, we can keep tracks each Blockio::write_all() call and make corresponding commit(aka. transactions).
+
+
+- What didn't work?
+
+    We have not successfully malloc a block in inode for journal block.
+
+- How can we compile/run your code?
+
+    cd testJournal
+    cd t0.dir/sbin
+    make
+    cd ../..
+    make clean -s test
+    Then, you will get the output in t0.raw
+
+- ..

@@ -1,0 +1,6 @@
+*.time
+*.failure
+*.raw
+*.out
+*.result
+*.diff

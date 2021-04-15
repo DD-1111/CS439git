@@ -1,0 +1,33 @@
+-- Should be identical for all group members --
+
+- What did the group plan on doing?
+    In milestone 2, our goal is to implement write, remove, and rename for file system
+    , and write the corresponding system calls. Also, we plan to implement the structure
+    of the journal.
+
+- What did the group end up doing?
+    We finish our plan and finish:
+    write(), removeFile(), renameFile() in class ext2
+    write(), remove(), rename() in sys.cc
+    journal structure in journal.h
+
+- What worked?
+    write(), remove(), rename() in class ext2
+    write(), remove(), rename() in sys.cc
+    functions in ext2 and system calls work very well
+
+- What didn't work?
+    journaling do not work for now, but we will finish it in milestone 3.
+
+- How can we compile/run your code?
+    We have two repos since the makefiles for syscall and ext2 are different.
+
+    *For testing file system, please run the following command:
+    cd cs439_f20_testFS_yijing/
+    ./run_qemu testFS
+
+    *For testing system call, please run the following command:
+    cd cs439_f20_testSymCall_beastbla/
+    ./run_qemu testFS
+
+- ...

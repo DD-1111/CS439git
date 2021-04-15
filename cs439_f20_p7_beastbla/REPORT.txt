@@ -1,0 +1,26 @@
+* Why do we need ARC?
+When we try to delete a synchronized primitive, it might be dangerous considering the 
+life cycle of threads and the life time of parameter passed in. It is safe to delete the
+pointer passed in threads when we know it is the last reference of thie value it point to
+so the synchronized primitive that we try to delete does not live out of the life cycle of 
+threads, we use ARC to indicate that signal so that we can get rid of race conditions and
+memory leak at the same time. 
+
+* "Futures are powerful but their full power can only be utilized once
+  we start thinking of them as functors, applicative functors, and
+  monads". Read about those ideas then comment on the assertion above.
+Pure function is a good because it always produces the same output for the same input.
+The essence of functional programming is that we can use a lot of small functions, 
+build them together to form a large function, and finally write the entire program. 
+If all IOs are to use the above model, we have to summarize all the places that need 
+IO in the program, make the input into a big data structure, and the output into a big 
+data structure, and then put it together on the model, which is very troublesome.
+That is why we need functors and monads, which are useful to bind small functions and combine
+the head of them as a input stream while the returned of them as an output stream, so we 
+don't have to build the IO data structure by hands.
+
+
+https://stackoverflow.com/questions/3870088/a-monad-is-just-a-monoid-in-the-category-of-endofunctors-whats-the-problem
+
+https://bartoszmilewski.com/2014/02/26/c17-i-see-a-monad-in-your-future/
+

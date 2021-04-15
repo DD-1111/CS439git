@@ -1,0 +1,24 @@
+- What did you plan on doing this week?
+I implemented the inner structure of the journal and other basic functions of the journal. 
+
+- What did you actually do?
+I designed a inner structure inside of journal, which is a circular buffer, which will automatically delete previous data while the journal is kind of "full"
+(which means the new transaction will make it goes out of the fixed size).Then I made the functions of buffering, second time writing, basicly txcommit, Jwrite and check things.
+Basicly, I did pretty much the whole implementation of logic of our journal system. 
+I also made a sysCall to show the journal.
+
+- What worked?
+The inner structure of circularbuffer worked, committing to the journal worked, all the things I mention above worked. 
+
+- What didn't work?
+But because we are using a using emulator, when we write to our fs, we can not actually store the data outside of the emulator, otherwise, 
+we will be happy to do a demo of a power cut and fix errors in file system caused by that using our journal.
+
+- What did you learn?
+I actually learn a lot, like I got completely understanding of the file system, then I design the suitable structure according to the IO interface we have for the current code we have.
+Now I know the logic of system recovery, and how to improve that journal's efficiency (by changing it to logical logging structure to avoid two times writing).
+
+- In your optinion, what percentage of the work was done by each group member?
+Diyuan Dai 55%, Yijing Chen 45%
+- ...
+

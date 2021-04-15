@@ -1,0 +1,41 @@
+Due: 
+
+    - test 9/6/2020 @ 11:59pm
+    - code 9/8/2020 @ 11:59pm
+
+Assignment:
+~~~~~~~~~~~
+
+    - Implement malloc and free in kernel/heap.cc
+
+         malloc(0) should always succeed
+
+    - contribute a test case: <your csid>.cc and <your csid>.ok
+
+To compile:
+~~~~~~~~~~~
+
+    make
+
+To run tests:
+~~~~~~~~~~~~~
+
+    make clean test
+
+To make the output less noisy:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make -s clean test
+
+To run by hand
+~~~~~~~~~~~~~~
+
+    ./run_qemu <test>
+
+To attach with gdb
+~~~~~~~~~~~~~~~~~~
+
+    ./debug_qemu <test>  
+
+       then follow the printed instructions
+

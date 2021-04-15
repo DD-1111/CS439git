@@ -1,0 +1,136 @@
+rue:
+    test 10/11/2020 @ 11:59pm
+    code 10/13/2020 @ 11:59pm
+
+Assignment:
+~~~~~~~~~~~
+
+    (1) Try to find bugs and race conditions in my implementation of
+        preemptive multi-threading, semaphores, and conditions.
+          * Write a test case that exposes the problem(s)
+          * Don't push heap utilization and performance, try to
+            focus on design and implementation issues
+          * Try to make your test informative
+
+    (2) Finish the implementation of ARC (the Share class in shared.h)
+
+    (3) Finish the implementation of the future and stream methods
+
+    (4) Donate a test case
+
+The "Shared" class (in shared.h):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Look in shared.h for more details
+
+The future method (in future.h):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Encapsulates a concurrent activity that return a value and returns
+a shared reference to a future containing that value. Example:
+
+    Shared<Future<int>> f = thread([] {
+        return 10;
+    });
+
+The stream method (in bb.h):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Encapsulates a concurrent activity that produces a stream of data and
+returns a shared reference to a bounded-buffer from which the data
+could be extracted. Example:
+
+    Shared<BoundedBuffer<int>> b = stream(10,[](Shared<BoundedBuffer<int>> b) {
+        for (int i=0; i<1000000; i++) {
+            b.put(i);
+        }
+    });
+
+    Debug::printf("%d\n",b.get()); // 0
+    Debug::printf("%d\n",b.get()); // 1
+    ...
+
+For help with make targets:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make help
+
+To compare your working directory with your submission:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make diff_submission
+
+To run tests:
+~~~~~~~~~~~~~
+
+    make clean test
+
+To make the output less noisy:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make -s clean test
+
+To run one test
+~~~~~~~~~~~~~~~
+
+    make -s t0.test
+
+To run tests from a different directory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    TESTS_DIR=all_tests make -s test
+
+To run a test in a loop (please be mindful of others):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make -s t0.loop
+
+To run a test until it fails (please be mindful of others):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make -s t0.fail
+
+To see a summary of your history
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make history
+
+ You can reset your history by removing the history file
+
+    rm history
+
+To get/update peer tests:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make get_tests    # places the tests in a directory named "all_tests"
+
+To get/update your server results:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make get_results  # places your results in a directory named "my_results"
+
+To run by hand
+~~~~~~~~~~~~~~
+
+    ./run_qemu t0
+
+To run with gdb
+~~~~~~~~~~~~~~~
+
+    ./debug_qemu t0
+
+       Then follow the instructions on the screen
+
+Generated files
+~~~~~~~~~~~~~~~
+
+For each test, a set of files will be generated:
+
+    <test>.raw          the raw output from running QEMU
+    <test>.time         how long it took to run the test
+    <test>.failure      failure information in case of failure
+    <test>.out          the lines that start with *** from the raw output
+    <test>.diff         the difference between <test>.out and <test>.ok
+    <test>.result       pass or fail
+
+

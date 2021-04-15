@@ -1,0 +1,34 @@
+* How many sectors are read while running t0?
+
+  `412
+
+* Read about journaled file systems and log structured file systems and
+  explain why we have them
+
+  `A journaled file system keeps a journal of the changes that are being made to the file system.
+  In order to keep consistency of file system, We can use journals to rapidly reconstruct corruptions 
+  when system crash or power outage.
+  `A log structured file system is a file system in which data and metadata are written sequentially 
+  to a circular buffer. It enables to write efficiently because of sequential writes and the redundant writes
+  are avoided.
+
+* Why do we need both hard links and symbolic links?
+
+  `Both hard links and symbolic links are two different method to refer to a file.
+  A hard link refers directly to the inode of a file. Therefore, if you change file via hard link,
+  the original file is changed.
+  A symbolic link is a shortcut that refers directly to the file which refers to the inode
+  , instead of inode itself. 
+  A sysblic links can lin kto directories which the hard link can't.
+  When you delete a target file, symbolic links to that file become unusable
+  , whereas hard links preserve the contents of the file.
+  They have different special usage, and that's why we need both of them.
+
+
+
+Source:
+https://en.wikipedia.org/wiki/Journaling_file_system
+https://en.wikipedia.org/wiki/Log-structured_file_system
+https://www.quora.com/What-is-the-difference-between-a-journaling-vs-a-log-structured-file-system
+https://blog.usejournal.com/what-is-the-difference-between-a-hard-link-and-a-symbolic-link-8c0493041b62
+

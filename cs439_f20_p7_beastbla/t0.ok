@@ -1,0 +1,420 @@
+*** in thread
+*** 10
+*** in thread #0
+*** 0
+*** in thread #1
+*** 1
+*** in thread #2
+*** 2
+*** in thread #3
+*** 3
+*** in thread #4
+*** 4
+*** in thread #5
+*** 5
+*** in thread #6
+*** 6
+*** in thread #7
+*** 7
+*** in thread #8
+*** 8
+*** in thread #9
+*** 9
+*** 1 ok
+*** threads = 2
+*** 2 ok
+*** threads = 3
+*** 3 ok
+*** threads = 4
+*** 4 ok
+*** threads = 5
+*** 5 ok
+*** threads = 6
+*** 6 ok
+*** threads = 7
+*** 7 ok
+*** threads = 8
+*** 8 ok
+*** threads = 9
+*** 9 ok
+*** threads = 10
+*** 10 ok
+*** threads = 11
+*** 11 ok
+*** threads = 12
+*** 12 ok
+*** threads = 13
+*** 13 ok
+*** threads = 14
+*** 14 ok
+*** threads = 15
+*** 15 ok
+*** threads = 16
+*** 16 ok
+*** threads = 17
+*** 17 ok
+*** threads = 18
+*** 18 ok
+*** threads = 19
+*** 19 ok
+*** threads = 20
+*** 20 ok
+*** threads = 21
+*** 21 ok
+*** threads = 22
+*** 22 ok
+*** threads = 23
+*** 23 ok
+*** threads = 24
+*** 24 ok
+*** threads = 25
+*** 25 ok
+*** threads = 26
+*** 26 ok
+*** threads = 27
+*** 27 ok
+*** threads = 28
+*** 28 ok
+*** threads = 29
+*** 29 ok
+*** threads = 30
+*** 30 ok
+*** threads = 31
+*** 31 ok
+*** threads = 32
+*** 32 ok
+*** threads = 33
+*** 33 ok
+*** threads = 34
+*** 34 ok
+*** threads = 35
+*** 35 ok
+*** threads = 36
+*** 36 ok
+*** threads = 37
+*** 37 ok
+*** threads = 38
+*** 38 ok
+*** threads = 39
+*** 39 ok
+*** threads = 40
+*** 40 ok
+*** threads = 41
+*** 41 ok
+*** threads = 42
+*** 42 ok
+*** threads = 43
+*** 43 ok
+*** threads = 44
+*** 44 ok
+*** threads = 45
+*** 45 ok
+*** threads = 46
+*** 46 ok
+*** threads = 47
+*** 47 ok
+*** threads = 48
+*** 48 ok
+*** threads = 49
+*** 49 ok
+*** threads = 50
+*** 50 ok
+*** threads = 51
+*** 51 ok
+*** threads = 52
+*** 52 ok
+*** threads = 53
+*** 53 ok
+*** threads = 54
+*** 54 ok
+*** threads = 55
+*** 55 ok
+*** threads = 56
+*** 56 ok
+*** threads = 57
+*** 57 ok
+*** threads = 58
+*** 58 ok
+*** threads = 59
+*** 59 ok
+*** threads = 60
+*** 60 ok
+*** threads = 61
+*** 61 ok
+*** threads = 62
+*** 62 ok
+*** threads = 63
+*** 63 ok
+*** threads = 64
+*** 64 ok
+*** threads = 65
+*** 65 ok
+*** threads = 66
+*** 66 ok
+*** threads = 67
+*** 67 ok
+*** threads = 68
+*** 68 ok
+*** threads = 69
+*** 69 ok
+*** threads = 70
+*** 70 ok
+*** threads = 71
+*** 71 ok
+*** threads = 72
+*** 72 ok
+*** threads = 73
+*** 73 ok
+*** threads = 74
+*** 74 ok
+*** threads = 75
+*** 75 ok
+*** threads = 76
+*** 76 ok
+*** threads = 77
+*** 77 ok
+*** threads = 78
+*** 78 ok
+*** threads = 79
+*** 79 ok
+*** threads = 80
+*** 80 ok
+*** threads = 81
+*** 81 ok
+*** threads = 82
+*** 82 ok
+*** threads = 83
+*** 83 ok
+*** threads = 84
+*** 84 ok
+*** threads = 85
+*** 85 ok
+*** threads = 86
+*** 86 ok
+*** threads = 87
+*** 87 ok
+*** threads = 88
+*** 88 ok
+*** threads = 89
+*** 89 ok
+*** threads = 90
+*** 90 ok
+*** threads = 91
+*** 91 ok
+*** threads = 92
+*** 92 ok
+*** threads = 93
+*** 93 ok
+*** threads = 94
+*** 94 ok
+*** threads = 95
+*** 95 ok
+*** threads = 96
+*** 96 ok
+*** threads = 97
+*** 97 ok
+*** threads = 98
+*** 98 ok
+*** threads = 99
+*** 99 ok
+*** threads = 100
+*** 100 ok
+*** threads = 101
+*** 101 ok
+*** threads = 102
+*** 102 ok
+*** threads = 103
+*** 103 ok
+*** threads = 104
+*** 104 ok
+*** threads = 105
+*** 105 ok
+*** threads = 106
+*** 106 ok
+*** threads = 107
+*** 107 ok
+*** threads = 108
+*** 108 ok
+*** threads = 109
+*** 109 ok
+*** threads = 110
+*** 110 ok
+*** threads = 111
+*** 111 ok
+*** threads = 112
+*** 112 ok
+*** threads = 113
+*** 113 ok
+*** threads = 114
+*** 114 ok
+*** threads = 115
+*** 115 ok
+*** threads = 116
+*** 116 ok
+*** threads = 117
+*** 117 ok
+*** threads = 118
+*** 118 ok
+*** threads = 119
+*** 119 ok
+*** threads = 120
+*** 120 ok
+*** threads = 121
+*** 121 ok
+*** threads = 122
+*** 122 ok
+*** threads = 123
+*** 123 ok
+*** threads = 124
+*** 124 ok
+*** threads = 125
+*** 125 ok
+*** threads = 126
+*** 126 ok
+*** threads = 127
+*** 127 ok
+*** threads = 128
+*** 128 ok
+*** threads = 129
+*** 129 ok
+*** threads = 130
+*** 130 ok
+*** threads = 131
+*** 131 ok
+*** threads = 132
+*** 132 ok
+*** threads = 133
+*** 133 ok
+*** threads = 134
+*** 134 ok
+*** threads = 135
+*** 135 ok
+*** threads = 136
+*** 136 ok
+*** threads = 137
+*** 137 ok
+*** threads = 138
+*** 138 ok
+*** threads = 139
+*** 139 ok
+*** threads = 140
+*** 140 ok
+*** threads = 141
+*** 141 ok
+*** threads = 142
+*** 142 ok
+*** threads = 143
+*** 143 ok
+*** threads = 144
+*** 144 ok
+*** threads = 145
+*** 145 ok
+*** threads = 146
+*** 146 ok
+*** threads = 147
+*** 147 ok
+*** threads = 148
+*** 148 ok
+*** threads = 149
+*** 149 ok
+*** threads = 150
+*** 150 ok
+*** threads = 151
+*** 151 ok
+*** threads = 152
+*** 152 ok
+*** threads = 153
+*** 153 ok
+*** threads = 154
+*** 154 ok
+*** threads = 155
+*** 155 ok
+*** threads = 156
+*** 156 ok
+*** threads = 157
+*** 157 ok
+*** threads = 158
+*** 158 ok
+*** threads = 159
+*** 159 ok
+*** threads = 160
+*** 160 ok
+*** threads = 161
+*** 161 ok
+*** threads = 162
+*** 162 ok
+*** threads = 163
+*** 163 ok
+*** threads = 164
+*** 164 ok
+*** threads = 165
+*** 165 ok
+*** threads = 166
+*** 166 ok
+*** threads = 167
+*** 167 ok
+*** threads = 168
+*** 168 ok
+*** threads = 169
+*** 169 ok
+*** threads = 170
+*** 170 ok
+*** threads = 171
+*** 171 ok
+*** threads = 172
+*** 172 ok
+*** threads = 173
+*** 173 ok
+*** threads = 174
+*** 174 ok
+*** threads = 175
+*** 175 ok
+*** threads = 176
+*** 176 ok
+*** threads = 177
+*** 177 ok
+*** threads = 178
+*** 178 ok
+*** threads = 179
+*** 179 ok
+*** threads = 180
+*** 180 ok
+*** threads = 181
+*** 181 ok
+*** threads = 182
+*** 182 ok
+*** threads = 183
+*** 183 ok
+*** threads = 184
+*** 184 ok
+*** threads = 185
+*** 185 ok
+*** threads = 186
+*** 186 ok
+*** threads = 187
+*** 187 ok
+*** threads = 188
+*** 188 ok
+*** threads = 189
+*** 189 ok
+*** threads = 190
+*** 190 ok
+*** threads = 191
+*** 191 ok
+*** threads = 192
+*** 192 ok
+*** threads = 193
+*** 193 ok
+*** threads = 194
+*** 194 ok
+*** threads = 195
+*** 195 ok
+*** threads = 196
+*** 196 ok
+*** threads = 197
+*** 197 ok
+*** threads = 198
+*** 198 ok
+*** threads = 199
+*** 199 ok
+*** threads = 200

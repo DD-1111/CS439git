@@ -1,0 +1,11 @@
+set -e
+  
+UTCS_OPT=-O0 make $1
+
+echo "in a different window:"
+echo "   gdb kernel/build/$1.kernel"
+echo "   target remote localhost:1234"
+echo "   set breakpoint, etc"
+echo "   continue"
+
+qemu-system-i386 -S -s -no-reboot -nographic -smp 2 --monitor none -drive file=kernel/build/$1.img,index=0,media=disk,format=raw -device isa-debug-exit,iobase=0xf4,iosize=0x04 || true

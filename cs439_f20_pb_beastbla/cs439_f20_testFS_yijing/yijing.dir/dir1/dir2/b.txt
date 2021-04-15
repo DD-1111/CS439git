@@ -1,0 +1,2 @@
+*** this is file b in ./dir1/dir2/b.txt
+*** read successfully

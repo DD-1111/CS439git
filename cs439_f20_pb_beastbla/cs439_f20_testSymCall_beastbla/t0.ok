@@ -1,0 +1,22 @@
+opening data.txt: 
+
+*** this is nice
+*** we can read
+
+writing to data.txt...
+
+data.txt after write(): 
+
+*** Data has changed, do panic !
+
+renaming data.txt to dete.txt... 
+
+opening dete.txt: 
+
+*** Data has changed, do panic !
+
+removing dete.txt 
+remove dete.txt under /data/
+
+trying to open dete.txt 
+*** That file is not here ;(

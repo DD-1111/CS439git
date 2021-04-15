@@ -1,0 +1,72 @@
+Due:
+    test 10/4/2020 @ 11:59pm
+    code 10/6/2020 @ 11:59pm
+
+Assignment:
+~~~~~~~~~~~
+
+    - Implement 5 blocking synchronization primitives:
+         * Barrier
+         * BlockingLock
+         * Bounded buffer (BB)
+         * ReusableBarrier
+         * Future
+
+     - Donate a test case
+
+For Makefile help:
+~~~~~~~~~~~~~~~~~~
+
+    make help
+
+To run tests:
+~~~~~~~~~~~~~
+
+    make clean test
+
+To make the output less noisy:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make -s clean test
+
+Server view targets:
+~~~~~~~~~~~~~~~~~~~~
+
+    make get_results     # gets and displays your results
+    make get_tests       # gets tests from the server
+    make get_summary     # shows results per test
+    make diff_submission # compare your working directory with your submission
+
+To run one test
+~~~~~~~~~~~~~~~
+
+    make -s t0.test               # run the test once
+    make -s t0.loop               # run the test 10 times
+    LOOP_LIMIT=6 make -s t0.loop  # run the test 6 times
+    make -s t0.fail               # run the test until it fails
+
+To run by hand
+~~~~~~~~~~~~~~
+
+    ./run_qemu t0
+
+To run with gdb
+~~~~~~~~~~~~~~~
+
+    ./debug_qemu t0
+
+       Then follow the instructions on the screen
+
+Generated files
+~~~~~~~~~~~~~~~
+
+For each test, a set of files will be generated:
+
+    <test>.raw          the raw output from running QEMU
+    <test>.time         how long it took to run the test
+    <test>.failure      failure information in case of failure
+    <test>.out          the lines that start with *** from the raw output
+    <test>.diff         the difference between <test>.out and <test>.ok
+    <test>.result       pass or fail
+
+

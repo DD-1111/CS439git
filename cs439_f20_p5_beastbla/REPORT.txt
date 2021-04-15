@@ -1,0 +1,26 @@
+* What new race conditions are introduced by enabling interrupts
+  and preemption?
+interrupts could also come in when a yield() is called by the user. Then we are going to call yield() within yield(). 
+Statements like TCB* tcb = actives[SMP::me()] will mess up the pointer of tcbs in the queue.
+While using locks and we need to manipulate that carefully
+
+* What changes did you make to your design/implementation
+  in order to defend against the new race conditions?
+ I simply disable interrupts during yield() and stop() and enable it accordingly in appropriate places.
+
+* Is my implementation of InterruptSafeLock correct? Explain your answer
+I would say it is correct because it can handle the case where we call unlock() inside a function in function that will
+expose some parts of dangerous actions into interrupts. It can restore the lock state to the state which it was in.
+
+* why is "spinning" a bad idea?
+Because it is wasteful:
+    - it wastes energy (drains batteries, overheats computers, etc)
+    - you spend your time asking "are we there yet?" instead of doing useful work
+
+* How do you evaluate the suitability of the 3 types of locks we implemented 
+  so far (spin, interrupt-safe, and blocking) for a given task?
+  Since we haven't implemented blocking, I would just evaluate the suitability of first two.
+  I feel interrupt-safe lock is much more stable because when we do preemption, we can think about how to 
+  avoid starvation and the case when all other threads are spinning for one threads, which will waste a lot of 
+  time and power. InterruptSafeLock and preemption will provide a mechanism of taking control of the operating 
+  system from one process and giving it to another process, which will be more stable than processes voluntarily yield control.

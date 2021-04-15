@@ -1,0 +1,29 @@
+- What did you plan on doing this week?
+We plan to implement write in ext2, remove and rename for our OS.
+We plan to implement some parts of journal.
+- What did you actually do?
+    write(), removeFile(), renameFile() in class ext2
+    write(), remove(), rename() in sys.cc
+    journal structure in journal.h
+    For jounral, most of the functions are still not implemented, and the structure for meta-data
+and functionality of it are still not sure.
+- What worked?
+    write(), remove(), rename() in class ext2
+    write(), remove(), rename() in sys.cc
+    functions in ext2 and system calls work very well
+- What didn't work?
+    Journal is not working(not done yet). The demonstration of journal will be little bit difficult,
+since the write in the environment of the qemu can not actually change the file outside, we can not 
+simulate a crash and recover, I personally believe we can just print out all the commit in order to show
+that we do have a journal for the content that actually change the filesystem.
+
+
+- What did you learn?
+The implement of entries function in ext2 use a high level design that can update multiple parameters passed into 
+the lamida, now I completely understand the design for the code provided to us, so I wrote the rename and write functions that
+doing perfectly well in beastbla directory. Then I finish the corresponding sysCalls, which is relatively simple.
+ 
+- In your optinion, what percentage of the work was done by each group member?
+Yijing 50%, Diyuan 50%.
+- ...
+

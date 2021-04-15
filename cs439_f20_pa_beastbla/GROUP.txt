@@ -1,0 +1,33 @@
+-- Should be identical for all group members --
+
+- What did the group plan on doing?
+
+    File system writing and journaling.
+
+- What did the group end up doing?
+
+    First, we will implement some write functions in file system. 
+    Planned write function： write() create() unlink()
+    Then, we will implement journaling.
+    journalWrite(), JournalCreate(), JournalUnlink();
+ 
+
+- What worked?
+
+    nothing work so far since we are at designing stage. 
+    We've learnt a lot about how journal works and how to implement write.
+    We did lots of research at this stage and made a slide for presentation.
+
+- What didn't work?
+
+    nothing work so far since we are at designing stage.
+    Since for every write action will be written into journal first, if we understand this correctly, 
+    we will need to modify the blockIO interface and other possible interface interacting with hardwares.
+    Also, we are concerned about how to make a demo using what we have now. (since we don't have a shell or 
+    input devices and the writing processes are fast and not crashing the system) 
+
+
+- How can we compile/run your code?
+
+    we will write detailed instruction in next milestone. 
+    we will provide several test case to show the journal we implemented works.

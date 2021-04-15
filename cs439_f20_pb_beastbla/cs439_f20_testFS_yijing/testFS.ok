@@ -1,0 +1,28 @@
+*** looking at /
+***      is a directory
+***      contains 7 entries
+***      has 4 links
+*** testing rename(): change hello to goood
+*** Before change: 
+*** looking at hello
+***      is a file
+***      contains 23 bytes
+***      has 1 links
+*** you can read files
+*** After change: 
+*** looking at goood
+***      is a file
+***      contains 23 bytes
+***      has 1 links
+*** you can read files
+*** testing remove(): delete goodbye
+*** Before change: 
+*** looking at goodbye
+***      is a file
+***      contains 23 bytes
+***      has 1 links
+*** you can read files
+*** After change: 
+*** After remove: 
+*** looking at goodbye
+***      does not exist

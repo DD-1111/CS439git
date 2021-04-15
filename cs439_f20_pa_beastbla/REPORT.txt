@@ -1,0 +1,38 @@
+- What did you plan on doing this week?
+I plan to do researches and make a slide for our presentation. 
+- What did you actually do?
+I actually learnt a lot about how journal works and how to implement write.
+But I know things will become harder while actually doing.
+I made the slide and prepare the contents and principles of journaling for presentation
+
+- What worked?
+
+    nothing work so far since we are at designing stage. 
+    We've learnt a lot about how journal works and how to implement write.
+    We did lots of research at this stage and made a slide for presentation.
+
+- What didn't work?
+
+    nothing work so far since we are at designing stage.
+    Since for every write action will be written into journal first, if we understand this correctly, 
+    we will need to modify the blockIO interface and other possible interface interacting with hardwares.
+    Also, we are concerned about how to make a demo using what we have now. (since we don't have a shell or 
+    input devices and the writing processes are fast and not crashing the system) 
+
+- What did you learn?
+I learnt that our file system is not completed at all since we can not even do writing.
+I know the process of journaling is like we do commit and push for git repo.
+presentation draft below can show my conclusion of what I have learnt.
+
+- In your optinion, what percentage of the work was done by each group member?
+I believe the work is distributed evenly so far.
+Yijing 50% Diyuan 50%
+- ...
+
+
+"
+For example, if only three blocks are written to the disk; but the whole disk needs to be scanned for repairing using fsck. This situation is similar to throwing your key on the floor of your bedroom and then you search the entire house. Therefore, with the increase of disks (RAID), people began to look for other solutions.
+The Journal is placed right after the superblock. And inside of the journal, we have Txbegin and TxEnding, marking the start of the recording of one transaction. The transaction is like a commit, once we change the data in a file system, like writing to files or rename a file, one transaction is made. And the journal will record the whole process. For example, we want to write a data block into the disk, we will need to write in a corresponding inode and then update the bitmap. So we have these three blocks in the middle, containing the actual content of the update; this logging is called the physical log, because we put the exact physical content of the update in the log. (Another way is the logical log, which is to place a more logical representation in the log, for example, "This update wants to append the data block x to the file y". Logical loging is a little bit complicated, but it can save space in the log and may Improve performance).
+Once the transaction is safely updated to the journal, we can overwrite the old data in the file system. This process is called checkpointing.
+The logging process may also get interrupted because system may crash or power may be cut, in order to speed up the writing of these logs, these 5 pieces of information will be used as an I/O request to operate. The order of the writing will be like, we write Begining mark first, then metadata, and data block, once those writing are finished, we are  sure this transaction is safe and completed, then we write TXEnding mark to finish logging, for sure, we want to make each step is atomic. After logging, we do checkpointing. It feels pretty much like we modify a file, we commit it and then we push it.
+"

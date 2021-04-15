@@ -1,0 +1,28 @@
+The Queue class doesn't have an isEmpty method because it is dangerous, why?
+Using isEmpty is dangerous because if we have more than one threads check the isEmpty when there is only one element left
+in the Queue, all the threads will try to remove and finally will cause null pointer in the later operation.
+How do you keep track of the active thread(s)?
+Using an array of TCB*.
+
+When is it safe to delete a thread control block / stack?
+A thread that calls stop means it has finished and should never run again. So we are safe to delete the control block and data.
+
+The Future class has a loop waiting for the "isReady" flag. Why is it a
+bad idea? can you think of a better way of doing it?
+It keeps do meaningless yield waiting for the result and waste resources. I am not sure how to do it better, may be reduce the frequency of determination?
+
+Read about and explain why you'd use the following x86 instructions:
+
+    pause is to avoid the memory-order mis-speculation when leaving the spin-loop. The PAUSE instruction provides a hint 
+    to the processor that the code sequence is a spin-wait loop.
+
+    hlt will stops instruction execution and places the processor in a HALT state. I can kill one single core using this.
+    
+    MWAIT instruction provides hints to allow the processor to enter an implementation-dependent optimized state. It will execute with MONITOR instruction.
+
+
+https://stackoverflow.com/questions/4725676/how-does-x86-pause-instruction-work-in-spinlock-and-can-it-be-used-in-other-sc
+
+https://x86.puri.sm/html/file_module_x86_id_134.html
+
+https://www.felixcloutier.com/x86/mwait

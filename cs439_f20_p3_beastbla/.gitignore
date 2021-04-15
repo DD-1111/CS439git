@@ -1,0 +1,16 @@
+*.d
+*.o
+*.raw
+*.out
+*.result
+*.diff
+kernel.bin
+kernel.img
+kernel/kernel
+kernel/kernel.cc
+t0.cc
+t1.cc
+t2.cc
+heap.h
+beastbla.cc
+beastbla.ok

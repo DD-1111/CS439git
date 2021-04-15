@@ -1,0 +1,186 @@
+rue:
+    test 9/27/2020 @ 11:59pm
+    code 9/29/2020 @ 11:59pm
+
+Assignment:
+~~~~~~~~~~~
+
+    - Implement preemptive multi-threading
+    - Implement blocking forms of the 3 synchronization primitives
+      we built so far: mutual exclusion locks (mutex), futures, and
+      barriers.
+    - Donate a test case
+
+The blocking lock (blocking_lock.h)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// The implementation is not allowed to spin unless the ready queue
+// is empty. Using an interrupt-safe spin lock to protect the
+// implementation data structures is acceptable. But the spin lock
+// has to be released before returning from the "lock" method.
+//
+// in kernel/blocking_lock.h
+
+class BlockingLock {
+public:
+    BlockingLock();
+
+    void lock();
+
+    void unlock();
+
+    // used for debugging
+    // returns true if the caller is holding this lock
+    //         false otherwise
+    //         allowed to report false positives
+    bool isMine() {
+        return true;   // meets the requirements but try to
+                       // do better
+    }
+};
+
+Future (in future.h)
+~~~~~~~~~~~~~~~~~~~~
+
+// Represents a value that will be computed at some future time
+// The implementation is not allowed to spin except for:
+//
+//    - short duration while manipulating the future data structure
+//    - if the ready queue is empty
+template <
+    typename T,           // Type for the value
+> class Future {
+public:
+    Future();
+
+    // Sets the future's value, can be called at most once.
+    void set(T v);
+
+    // Blocks the caller until the value is set, returns the value
+    // Can only spin if the ready queue is empty
+    T get();
+};
+
+Barrier (in barrier.h)
+~~~~~~~~~~~~~~~~~~~~~~
+
+// A one-shot barrier. Causes N-1 threads to block until
+// the N'th call to sync.
+class Barrier {
+    Barrier(uint32_t N);
+
+    // Blocks the first N-1 callers until the N't call
+    // 
+    // Implementation is only allowed to spin:
+    //   - for short periods to protect the internal data structures
+    //   - if the ready queue is empty
+    //
+    // Should be called at most N times. Behavior is undefined otherwise
+    void sync();
+};
+
+
+
+How preemption happens:
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The programmable interval timer (PIT) is programmed to generate an interrupt
+every 1ms. The PIT interrupt handler calls "yield".
+
+Scheduling:
+~~~~~~~~~~~
+
+- Can't make any assumptions about exact execution order
+- All threads must get a chance to run (no thread starvation)
+- All cores must participate in running ready threads (no core starvation)
+
+To get help with make target:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+make help
+
+To run tests:
+~~~~~~~~~~~~~
+
+    make clean test
+
+To make the output less noisy:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make -s clean test
+
+To run tests from a different direcoty:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    TESTS_DIR=all_tests make -s test
+
+To run one test
+~~~~~~~~~~~~~~~
+
+    make -s t0.test
+
+To run a test in a loop:
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make -s t0.loop
+
+To run a test until it fails:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make -s t0.fail
+
+To view your execution history:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make history
+
+It summarizes the contents of the history file
+
+To reset your history
+
+    rm -f history
+
+To get all tests from the server:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make -s get_tests  # puts the tests in the all_tests directory
+
+To get your results from the server:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make -s get_results
+
+To run by hand
+~~~~~~~~~~~~~~
+
+    ./run_qemu t0
+
+To run with gdb
+~~~~~~~~~~~~~~~
+
+    ./debug_qemu t0
+
+       Then follow the instructions on the screen
+
+Generated files
+~~~~~~~~~~~~~~~
+
+For each test, a set of files will be generated:
+
+    <test>.raw          the raw output from running QEMU
+    <test>.time         how long it took to run the test
+    <test>.failure      failure information in case of failure
+    <test>.out          the lines that start with *** from the raw output
+    <test>.diff         the difference between <test>.out and <test>.ok
+    <test>.result       pass or fail
+
+To share results with peers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    make publish
+
+This will generate a file named publish.results containing anonymized
+information about your environment and the peer tests you ran. Details
+about how to share this information will be provided separately
+
+

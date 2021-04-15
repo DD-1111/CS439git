@@ -1,0 +1,31 @@
+Describe your allocation strategy (first-fit, best-fit, worst-fit, ...)
+My memory allocator is first-fit, it the free node one by one in order and will allocate
+the memory once a suitable place is found.  
+
+Why did you pick this strategy?
+The first-fit policy has less cases to consider and is clearest to understand and implement.
+This policy satisfies allocation of any size of memory if we have space and don't need to
+reallocate memory. It can reduce the internal memory fraction problems and save memory by producing less waste parts.
+However, once we have high-freqency allocation, it will produce a lot of external fraction.
+
+
+Describe a scenario in which best-fit will do better than first-fit
+Consider a micro heap of 64 bytes. First we fill it by allocating one 32 
+and two 16 byte blocks in that order. Then we free all blocks. There are 
+now three free blocks in the heap, one 32 byte and two 16 byte ones.
+Using first fit, we allocate one 16 byte block. We do it using the 32 byte
+block (because it is first in the heap!) and the remainder 16 bytes of that 
+block is split into a new free block. So there are one 16 byte allocated block 
+at the beginning of the heap and then three free 16 bytes block.
+We can't allocate 32 bytes now for first-fit, but we can do it by using best-fit.
+When we were searching for a free block to use for our 16 byte allocation, 
+we would have skipped over the 32 byte block at the beginning of the heap and 
+instead picked the 16 byte block after it. That would have preserved the 32 byte block for larger allocations.
+
+Describe a scenario in which worst-fit will do better than best-fit
+In worst fit approach is to locate largest available free portion so that the portion 
+left will be big enough to be useful. It reduces the rate of production of small gaps,
+because worst-fit will take most of the memory for using and produce less gaps.
+
+- https://stackoverflow.com/questions/8401665/why-would-anyone-use-best-fit-memory-allocation
+- http://thumbsup2life.blogspot.com/2011/02/best-fit-first-fit-and-worst-fit-memory.html

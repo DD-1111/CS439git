@@ -1,0 +1,2 @@
+*** this is file d in ./dir1/dir2/dir3/dir4/d.txt
+*** read successfully
